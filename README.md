@@ -81,7 +81,7 @@ http://localhost:11434
 프로젝트 루트에서 아래 명령어를 실행합니다.
 
 ```powershell
-cd 'D:\아주대학교\2026-1\산업공학종합설계_이주연\0_project_Source'
+cd '본인의 파일 경로'
 .\mvnw.cmd spring-boot:run
 ```
 
@@ -98,7 +98,7 @@ cd 'D:\아주대학교\2026-1\산업공학종합설계_이주연\0_project_Sourc
 원하면 jar 파일로도 실행할 수 있습니다.
 
 ```powershell
-cd 'D:\아주대학교\2026-1\산업공학종합설계_이주연\0_project_Source'
+cd '본인의 파일 경로'
 .\mvnw.cmd -DskipTests package
 java -jar .\target\process-log-chatbot-0.0.1-SNAPSHOT.jar
 ```
