@@ -1,0 +1,5 @@
+# Optional profile-specific overrides for local development.
+# TODO(user): Keep sensitive DB/Ollama values in application-secrets.yml, not here.
+logging:
+  level:
+    kr.ac.ajou.ie.processchatbot: DEBUG

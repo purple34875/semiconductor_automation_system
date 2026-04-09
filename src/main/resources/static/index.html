@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Process Log Chat</title>
+	<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+	<div class="app-shell">
+		<header class="topbar">
+			<div class="brand-block">
+				<div class="brand-mark">PL</div>
+				<div class="brand-copy">
+					<p class="brand-kicker">Semiconductor QA Assistant</p>
+					<h1>Process Log Chat</h1>
+				</div>
+			</div>
+			<p class="status-pill">Local API /api/chat</p>
+		</header>
+
+		<main class="chat-stage">
+			<section id="emptyState" class="empty-state">
+				<div class="empty-panel">
+					<p class="empty-label">질문 가이드</p>
+					<h2>공정 로그를 자연어로 물어보세요.</h2>
+					<p class="empty-description">
+						작업자, 공정명, cassette, 날짜, 기간, 건수 기반 질문을 채팅 형태로 보낼 수 있습니다.
+					</p>
+					<div class="suggestion-grid">
+						<button type="button" class="suggestion-card" data-prompt="최근 작업 기록 5건 보여줘">
+							<span class="suggestion-title">최근 로그</span>
+							<span class="suggestion-text">최근 작업 기록 5건 보여줘</span>
+						</button>
+						<button type="button" class="suggestion-card" data-prompt="허은택 작업자의 오늘 작업 내역 알려줘">
+							<span class="suggestion-title">작업자 기준</span>
+							<span class="suggestion-text">허은택 작업자의 오늘 작업 내역 알려줘</span>
+						</button>
+						<button type="button" class="suggestion-card" data-prompt="식각 공정의 오늘 작업 건수 알려줘">
+							<span class="suggestion-title">공정 건수</span>
+							<span class="suggestion-text">식각 공정의 오늘 작업 건수 알려줘</span>
+						</button>
+						<button type="button" class="suggestion-card" data-prompt="2026-04-01부터 2026-04-03까지 작업 내역 요약해줘">
+							<span class="suggestion-title">기간 요약</span>
+							<span class="suggestion-text">2026-04-01부터 2026-04-03까지 작업 내역 요약해줘</span>
+						</button>
+					</div>
+				</div>
+			</section>
+
+			<section id="messages" class="messages" aria-live="polite"></section>
+		</main>
+
+		<form id="chatForm" class="composer-shell">
+			<div class="composer-card">
+				<label class="composer-label" for="chatInput">질문 입력</label>
+				<div class="composer-row">
+					<textarea
+						id="chatInput"
+						class="composer-input"
+						rows="1"
+						placeholder="공정 로그에 대해 질문해보세요."
+						autocomplete="off"
+					></textarea>
+					<button id="sendButton" class="send-button" type="submit">전송</button>
+				</div>
+				<p class="composer-hint">Enter 전송 · Shift+Enter 줄바꿈</p>
+			</div>
+		</form>
+	</div>
+
+	<script src="/app.js" defer></script>
+</body>
+</html>

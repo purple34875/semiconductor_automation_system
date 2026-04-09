@@ -1,0 +1,48 @@
+spring:
+  config:
+    # TODO(user): Edit application-secrets.yml in the project root. That file is loaded automatically.
+    import: optional:file:./application-secrets.yml,optional:file:./config/application-secrets.yml
+  application:
+    name: process-log-chatbot
+  datasource:
+    # TODO(user): These are fallback values only. Put your real DB settings in application-secrets.yml.
+    url: jdbc:mysql://localhost:3306/project_DB?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: app_readonly
+    password: change_me
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      # Keep the app bootable even when the placeholder DB settings have not been updated yet.
+      initialization-fail-timeout: -1
+      minimum-idle: 0
+  ai:
+    ollama:
+      # TODO(user): These are fallback values only. Put your real Ollama settings in application-secrets.yml.
+      base-url: http://localhost:11434
+      chat:
+        model: exaone3.5:latest
+        options:
+          temperature: 0.1
+          num-predict: 512
+
+server:
+  # TODO(user): Change this in application-secrets.yml if 8080 is already in use.
+  port: 8080
+
+logging:
+  level:
+    root: INFO
+    kr.ac.ajou.ie.processchatbot: DEBUG
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+app:
+  timezone: Asia/Seoul
+  max-question-length: 500
+  default-limit: 5
+  max-limit: 50
+  max-date-range-days: 31
+  ollama-health-path: /api/tags

@@ -1,0 +1,41 @@
+tables:
+  - name: Operator_Master
+    purpose: 작업자 마스터 정보 저장
+    columns:
+      - name: operator_id
+        meaning: 작업자 고유 ID
+      - name: operator_name
+        meaning: 작업자 이름
+
+  - name: Process_Master
+    purpose: 공정 마스터 정보 저장
+    columns:
+      - name: process_id
+        meaning: 공정 고유 ID
+      - name: process_name
+        meaning: 공정 이름
+
+  - name: Process_Log
+    purpose: 실제 작업/공정 수행 기록 저장
+    columns:
+      - name: log_id
+        meaning: 로그 고유 ID
+      - name: cassette_id
+        meaning: 카세트 식별자
+      - name: process_id
+        meaning: 수행된 공정 ID
+      - name: operator_id
+        meaning: 작업자 ID
+      - name: start_time
+        meaning: 작업 시작 시간
+      - name: end_time
+        meaning: 작업 종료 시간
+      - name: work_date
+        meaning: 작업 날짜
+      - name: remarks
+        meaning: 작업 비고
+relationships:
+  - from: Process_Log.process_id
+    to: Process_Master.process_id
+  - from: Process_Log.operator_id
+    to: Operator_Master.operator_id
